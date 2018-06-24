@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GifTastic</title>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/javascript/app.js" ></script>
@@ -15,13 +16,17 @@
     <div id="animalBtn"></div>
 
     <form id="animalForm">
-        <label for="animalInput">Add an animal:</label> <br>
-        <input type=“text” id=addAnimal><br>
-      
+        <label for="animalInput" id="input">Add an animal:</label> <br>
+        <input type=“text” id=addAnimal>     
         <button id=submitBtn>Submit</button>
+        <button id=additionalGifsBtn>Addition Gifs</button>
     </form>
 
     <div id="animals"></div>
+
+    <h2> Favorite GIFs</h2>
+    <div id="favorite"></div>
+
 
 </body>
 
