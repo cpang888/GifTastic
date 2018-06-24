@@ -39,6 +39,9 @@
 
     // show favorite image to html's favorite section
     function showFavoriteImg() {
+
+      $("#favorite").empty();
+      
       var favoriteUrl = localStorage.getItem("favoriteImg");
 
       if(favoriteUrl != "") {
@@ -101,15 +104,19 @@
             console.log("animalDiv still" + $(this).data("data-image-still"));
             console.log("animalDiv animate" + $(this).data("data-image-animate"));
 
-            var state = $(".favoriteBtn").data("data-state");
+            var state = $(this).data("data-state");
 
             console.log("favoriteImg state: " + state);
-
-            if(state === "still") {
+            if($(this).data("data-state") != "animate") {
               favoriteImg = $(this).data("data-image-still");
             } else {
               favoriteImg = $(this).data("data-image-animate");
             }
+            // if(state == "still") {
+            //   favoriteImg = $(this).data("data-image-still");
+            // } else {
+            //   favoriteImg = $(this).data("data-image-animate");
+            // }
             storeFavoriteImg();
             console.log("favoriteImg: " + favoriteImg);
 
@@ -118,11 +125,12 @@
 
           $(".gif").on("click", function() {
             // event.preventDefault();
-            
+            $(".favoriteBtn").data("data-state", "still");
+
             var state = $(this).attr("data-state");
             console.log("state: " + state);
             
-            if(state === "still") {
+            if(state == "still") {
               $(this).attr("src", $(this).attr("data-animate"));
               $(this).attr("data-state", "animate");
               $(".favoriteBtn").data("data-state", "animate");
